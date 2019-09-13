@@ -9,11 +9,12 @@
   <title>SuperHeroes</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
   <header class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper blue">
         <ul>
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;SuperHeroes</a></li>
         </ul>
@@ -26,6 +27,11 @@
           <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
           {% endif %}
+          <li><a href="/about">About</a></li>
+          <li><a href="/about">View All Super Heroes</a></li>
+          <li><a href="/about">Add a Super Hero</a></li>
+          <li><a href="/about">Add a Super Power</a></li>
+
         </ul>
 
       </div>
@@ -35,7 +41,7 @@
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer">
+  <footer class="page-footer blue">
     <div class="right">All Rights Reserved, &copy; 2019 SuperHeroes &nbsp;</div>
   </footer>
 </body>
