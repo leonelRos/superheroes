@@ -12,7 +12,7 @@ from .models import Superhero
 
 class SuperheroCreate(CreateView):
   model = Superhero
-  fields = '__all__'
+  fields = ['name', 'power', 'description', 'age']
 
 class SuperheroUpdate(UpdateView):
   model = Superhero
