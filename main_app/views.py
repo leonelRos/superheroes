@@ -6,6 +6,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+
 def signup(request):
   error_message = ''
   if request.method == 'POST':
@@ -20,7 +21,7 @@ def signup(request):
       # redirect should be changed to 'index'
       return redirect('about')
     else:
-      error_message = 'Invalid sign up - try again'
+      error_message = 'Invalid sign up - keep trying'
   # A bad POST or a GET request, so render signup.html with an empty form
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
