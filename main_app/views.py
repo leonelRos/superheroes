@@ -2,9 +2,30 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+
+from .models import Superhero
+
 
 # Create your views here.
+
+
+class SuperheroCreate(CreateView):
+  model = Superhero
+  fields = '__all__'
+
+class SuperheroUpdate(UpdateView):
+  model = Superhero
+  # Let's disallow the renaming of a Superhero by excluding the name field!
+  fields = ['name', 'description', 'age']
+
+class SuperheroDelete(DeleteView):
+  model = Superhero
+  success_url = '/superheroes/'
+
+
+
 
 
 def signup(request):
@@ -27,9 +48,21 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+# Add new view
+def superheroes(request):
+  superheroes = Superhero.objects.all()
+  return render(request, 'superheroes/index.html', { 'superheroes': superheroes })
+
+def superheroes_detail(request, superhero_id):
+  superhero = Superhero.objects.get(id=superhero_id)
+  return render(request, 'superheroes/detail.html', { 'superhero': superhero })
+
+
 
 # Define the home view
 def home(request):
   return render(request, 'home.html')
 def about(request):
   return render(request, 'about.html')
+
+
