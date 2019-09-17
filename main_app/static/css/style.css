@@ -1,16 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Notable&display=swap');
+html {
+  overflow: hidden;
+}
+
 body {
 
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    
-  }
-  
-  main {
-    flex: 1 0 auto;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    overflow-x:hidden;
+    overflow-y:auto; 
   }
   
   footer {
     padding-top: 0;
     text-align: right;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Notable', sans-serif;
+    text-align: center; 
+  }
+
+  span, p, li, a {
+    font-family: 'Notable', sans-serif;
+    font-weight: 200; 
+  }
+
+  ul.right {
+    margin-left: 100px; 
+  }
+
+  div.card-content:hover {
+    background-color: rgb(131, 106, 106); 
+  }
+
+  form, table, input {
+    justify-content: center; 
+    margin-left: 10%; 
+    margin-right: 25%; 
+  }
+
+.myparalax-wrapper {
+  width: 100vw;
+  height:100vh;
+  padding-top:20vh;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+.parallax-wrapper::before {
+  /* content:""; */
+  width: 100vw;
+  height: 100vh;
+  top:0;
+  left:0;
+  background: url("https://i.imgur.com/mtCCTeF.jpg");
+  position: absolute;
+  z-index: -1;
+  transform:translateZ(-1px) scale(2);
+}
+.content {
+  margin: 0 auto;
+  padding: 50px;
+  width: 50%;
+  background: #aaa;
+}
+
+.regular-wrapper {
+  width: 100vw;
+  height:100vh;
+  padding-top:20vh;
+  background: url("https://i.imgur.com/mtCCTeF.jpg");
+  z-index: 2;
+  position: relative;
+}
+
+
+
