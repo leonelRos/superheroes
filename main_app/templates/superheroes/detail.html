@@ -8,7 +8,7 @@
     <span class="card-title">{{ superhero.name }}</span>
     <p>Power: {{ superhero.power }}</p>
     <p>Description: {{ superhero.description }}</p>
-      <p>Age: {{ superhero.age }}</p>
+    <p>Age: {{ superhero.age }}</p>
    
   </div>
   <div class="card-action">
@@ -19,6 +19,8 @@
       
   {% for photo in superhero.photo_set.all %}
     <img class="responsive-img card-panel" src="{{photo.url}}">
+    
+    <a href="{% url 'photos_delete' photo.id %}">Delete</a>
   {% empty %}
     <div class="card-panel teal-text center-align">No Photos Uploaded</div>
   {% endfor %}
@@ -28,6 +30,7 @@
     <br><br>
     <input type="submit" class="btn" value="Upload Photo">
 </form>
+
 
 
 {% endblock %}

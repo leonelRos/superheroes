@@ -19,16 +19,21 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;SuperHeroes</a></li>
         </ul>
         <ul class="right">
+
           <li><a href="{% url 'about' %}">About</a></li>
           {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             <li><a href="{% url 'superheroes' %}">View All Super Heroes</a></li>
             <li><a href="{% url 'superheroes_create' %}">Add a Super Hero</a></li>
-            <li><a href="/about">Add a Super Power</a></li>
+            <li><a href="{% url 'powers_add' %}">Add a Super Power</a></li>
+            <li><a href="{% url 'powers_index' %}">View All Powers</a></li>
           {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
           {% endif %}
+          
+          
+          
 
         </ul>
 
