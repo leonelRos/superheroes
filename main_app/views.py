@@ -84,12 +84,21 @@ def superheroes(request):
 
 def superheroes_detail(request, superhero_id):
   superhero = Superhero.objects.get(id=superhero_id)
-  return render(request, 'superheroes/detail.html', { 'superhero': superhero })
+  power_superhero_doesnt_have = Power.objects.exclude(id__in = superhero.add_powers.all().values_list('id'))
+  return render(request, 'superheroes/detail.html', { 
+    'superhero': superhero, 
+    'add_powers': power_superhero_doesnt_have
+  })
 
 # powers view 
 def powers(request):
   powers = Power.objects.all()
   return render(request, 'main_app/superpower_add.html', { 'powers': powers })
+
+def assoc_power(request, superhero_id, power_id):
+  # Note that you can pass a toy's id instead of the whole object
+  Superhero.objects.get(id=superhero_id).add_powers.add(power_id)
+  return redirect('detail', superhero_id=superhero_id)
 
 
 

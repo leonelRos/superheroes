@@ -33,6 +33,46 @@
     <br><br>
     <input type="submit" class="btn" value="Upload Photo">
 </form>
+<hr>
+<div class="row">
+  <div class="col s6">
+    <h3>{{ superhero.name }}'s Power</h3>
+    {% if superhero.add_powers.count %}
+      {% for power in superhero.add_powers.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span>{{ power.name }}</span> 
+            </span>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No Superpowers</h5>
+    {% endif %}
+  </div>
+  <div class="col s6">
+    <h3>Available Superpowers</h3>
+    {% if add_powers.count %}
+      {% for power in add_powers.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span>{{ power.name }}</span>
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'assoc_power' superhero.id power.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>{{superhero.name}} Already Has All powers Available</h5>
+    {% endif %}
+  </div>
 
 
 

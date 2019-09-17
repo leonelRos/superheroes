@@ -12,6 +12,8 @@ urlpatterns = [
     path('superheroes/create/', views.SuperheroCreate.as_view(), name='superheroes_create'),
     path('superheroes/<int:pk>/update/', views.SuperheroUpdate.as_view(), name='superheroes_update'),
     path('superheroes/<int:pk>/delete/', views.SuperheroDelete.as_view(), name='superheroes_delete'),
+    path('superheroes/<int:superhero_id>/assoc_power/<int:power_id>/', views.assoc_power, name='assoc_power'),
+
     #heroes
     path('powers/', views.PowerList.as_view(), name='powers_index'),
     path('powers/create/', views.PowerCreate.as_view(), name='powers_add'),
