@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>superhero List</h1>
+<h1>Superhero List</h1>
 
 {% for superhero in superheroes %}
   <div class="card">
-        <a href="{% url 'detail' superhero.id %}">
-    <iv class="card-content">
-      <span class="card-title">{{ superhero.name }}</span>
-      <p>Power: {{ superhero.power }}</p>
-      <p>Description: {{ superhero.description }}</p>
-        <p>Age: {{ superhero.age }}</p>
-   
-    </div>
+    <a href="{% url 'detail' superhero.id %}">
+      <div class="card-content">
+        <span class="card-title">{{ superhero.name }}</span>
+          <p>Power: {{ superhero.power }}</p>
+          <p>Description: {{ superhero.description }}</p>
+          <p>Age: {{ superhero.age }}</p>
+          
+      </div>
   </div>
 {% endfor %}
 

@@ -18,7 +18,12 @@
   </div>
       
   {% for photo in superhero.photo_set.all %}
+  <div class='card'>
     <img class="responsive-img card-panel" src="{{photo.url}}">
+    <div class="card-action">
+    <a href="{% url 'photos_delete' photo.id %}">Delete</a>
+  </div>
+</div>
   {% empty %}
     <div class="card-panel teal-text center-align">No Photos Uploaded</div>
   {% endfor %}

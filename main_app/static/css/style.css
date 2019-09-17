@@ -4,7 +4,6 @@ html {
 }
 
 body {
-
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -13,12 +12,13 @@ body {
     overflow-x:hidden;
     overflow-y:auto; 
   }
-  
+
   footer {
     padding-top: 0;
     text-align: right;
   }
 
+<<<<<<< HEAD
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Notable', sans-serif;
     text-align: center; 
@@ -80,3 +80,11 @@ body {
 
 
 
+=======
+.batman {
+  
+  max-width: 30%;
+  height: auto;
+
+}
+>>>>>>> master
