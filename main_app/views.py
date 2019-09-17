@@ -3,13 +3,18 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from django.views.generic import DetailView
+
+
 import uuid
 import boto3
-from .models import Superhero, Photo
+from .models import Superhero, Photo, Power
 
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'superheroes-project'
+
 
 # Create your views here.
 
@@ -29,8 +34,21 @@ class SuperheroDelete(DeleteView):
   model = Superhero
   success_url = '/superheroes/'
 
+# Create your views for powers! 
+class PowersCreate(CreateView):
+  model = Power
+  fields = '__all__'
 
+class PowerDetail(DetailView):
+  model = Power
 
+class PowerDelete(DeleteView):
+  model = Power
+  success_url = '/superheroes/'
+
+class PowerUpdate(UpdateView):
+  model = Power
+  fields = '__all__'
 
 def signup(request):
   error_message = ''
@@ -61,6 +79,13 @@ def superheroes_detail(request, superhero_id):
   superhero = Superhero.objects.get(id=superhero_id)
   return render(request, 'superheroes/detail.html', { 'superhero': superhero })
 
+perice# powers view 
+def powers(request):
+  powers = Power.objects.all()
+  return render(request, 'main_app/superpower_add.html', { 'powers': powers })
+
+
+=======
 def add_photo(request, superhero_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
@@ -79,6 +104,7 @@ def add_photo(request, superhero_id):
         except:
             print('An error occurred uploading file to S3')
     return redirect('detail', superhero_id=superhero_id)
+
 
 # Define the home view
 def home(request):

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Power Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ power.name }}</span>
+    <p>Power: {{ power.name }}</p>
+    <p>Description: {{ power.description }}</p>
+    
+   
+  </div>
+  <div class="card-action">
+        <a href="{% url 'power_update' power.id %}">Edit</a>
+        <a href="{% url 'power_delete' power.id %}">Delete</a>
+      </div>
+</div>
+
+
+{% endblock %}
