@@ -8,7 +8,7 @@
     <span class="card-title">{{ superhero.name }}</span>
     <p>Power: {{ superhero.power }}</p>
     <p>Description: {{ superhero.description }}</p>
-      <p>Age: {{ superhero.age }}</p>
+    <p>Age: {{ superhero.age }}</p>
    
   </div>
   <div class="card-action">
@@ -16,5 +16,6 @@
         <a href="{% url 'superheroes_delete' superhero.id %}">Delete</a>
       </div>
 </div>
+
 
 {% endblock %}
