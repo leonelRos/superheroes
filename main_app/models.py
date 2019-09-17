@@ -13,7 +13,7 @@ class Power(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('power_detail', kwargs={'pk': self.id})
+        return reverse('powers_detail', kwargs={'pk': self.id})
 
 class Superhero(models.Model):  # Note that parens are optional if not inheriting from another class
     name = models.CharField(max_length=100)

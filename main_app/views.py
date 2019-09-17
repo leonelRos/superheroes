@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 
 import uuid
@@ -35,7 +35,7 @@ class SuperheroDelete(DeleteView):
   success_url = '/superheroes/'
 
 # Create your views for powers! 
-class PowersCreate(CreateView):
+class PowerCreate(CreateView):
   model = Power
   fields = '__all__'
 
@@ -49,6 +49,10 @@ class PowerDelete(DeleteView):
 class PowerUpdate(UpdateView):
   model = Power
   fields = '__all__'
+
+class PowerList(ListView):
+  model = Power
+  
 
 def signup(request):
   error_message = ''
@@ -79,13 +83,13 @@ def superheroes_detail(request, superhero_id):
   superhero = Superhero.objects.get(id=superhero_id)
   return render(request, 'superheroes/detail.html', { 'superhero': superhero })
 
-perice# powers view 
+# powers view 
 def powers(request):
   powers = Power.objects.all()
   return render(request, 'main_app/superpower_add.html', { 'powers': powers })
 
 
-=======
+
 def add_photo(request, superhero_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)

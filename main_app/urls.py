@@ -13,10 +13,11 @@ urlpatterns = [
     path('superheroes/<int:pk>/update/', views.SuperheroUpdate.as_view(), name='superheroes_update'),
     path('superheroes/<int:pk>/delete/', views.SuperheroDelete.as_view(), name='superheroes_delete'),
     #heroes
-    path('powers/create/', views.PowersCreate.as_view(), name='superpower_add'),
-    path('powers/<int:pk>/', views.PowerDetail.as_view(), name='power_detail'),
-    path('powers/<int:pk>/delete', views.PowerDelete.as_view(), name='power_delete'),
-    path('powers/<int:pk>/update', views.PowerUpdate.as_view(), name='power_update'),
+    path('powers/', views.PowerList.as_view(), name='powers_index'),
+    path('powers/create/', views.PowerCreate.as_view(), name='powers_add'),
+    path('powers/<int:pk>/', views.PowerDetail.as_view(), name='powers_detail'),
+    path('powers/<int:pk>/delete', views.PowerDelete.as_view(), name='powers_delete'),
+    path('powers/<int:pk>/update', views.PowerUpdate.as_view(), name='powers_update'),
     path('superheroes/<int:superhero_id>/add_photo/', views.add_photo, name='add_photo'),
 
 ]
