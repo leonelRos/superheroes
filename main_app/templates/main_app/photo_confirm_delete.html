@@ -3,7 +3,7 @@
 {% block content %}
 
   <h1>Delete Image?</h1>
-  <h4>Are you sure you want to delete <span class="teal-text">{{ object.name }}</span>?</h4>
+  <h4>Are you sure you want to delete this image?<span class="teal-text">{{ object.name }}</span>?</h4>
 
   <form action="" method="POST">
     {% csrf_token %}
@@ -12,5 +12,4 @@
   </form>
   <img class="responsive-img card-panel" src="{{photo.url}}">
   
-
 {% endblock %}

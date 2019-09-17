@@ -55,7 +55,7 @@ class PowerList(ListView):
   
 class PhotoDelete(DeleteView):
   model = Photo
-  success_url = '/superheroes/'
+  success_url = f'/superheroes/'
 
 def signup(request):
   error_message = ''
