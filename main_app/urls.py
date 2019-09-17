@@ -19,6 +19,9 @@ urlpatterns = [
     path('powers/<int:pk>/delete', views.PowerDelete.as_view(), name='powers_delete'),
     path('powers/<int:pk>/update', views.PowerUpdate.as_view(), name='powers_update'),
     path('superheroes/<int:superhero_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('photos/<int:pk>/delete', views.PhotoDelete.as_view(), name='photos_delete'),
+   
+    
 
 ]
 

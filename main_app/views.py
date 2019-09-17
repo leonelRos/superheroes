@@ -44,7 +44,7 @@ class PowerDetail(DetailView):
 
 class PowerDelete(DeleteView):
   model = Power
-  success_url = '/superheroes/'
+  success_url = '/powers/'
 
 class PowerUpdate(UpdateView):
   model = Power
@@ -53,6 +53,9 @@ class PowerUpdate(UpdateView):
 class PowerList(ListView):
   model = Power
   
+class PhotoDelete(DeleteView):
+  model = Photo
+  success_url = '/superheroes/'
 
 def signup(request):
   error_message = ''
@@ -108,6 +111,8 @@ def add_photo(request, superhero_id):
         except:
             print('An error occurred uploading file to S3')
     return redirect('detail', superhero_id=superhero_id)
+
+
 
 
 # Define the home view
