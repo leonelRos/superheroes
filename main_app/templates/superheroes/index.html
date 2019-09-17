@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>superhero List</h1>
+<h1>Superhero List</h1>
 
 {% for superhero in superheroes %}
   <div class="card">
@@ -11,6 +11,7 @@
           <p>Power: {{ superhero.power }}</p>
           <p>Description: {{ superhero.description }}</p>
           <p>Age: {{ superhero.age }}</p>
+          
       </div>
   </div>
 {% endfor %}
