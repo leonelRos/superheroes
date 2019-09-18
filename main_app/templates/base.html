@@ -10,44 +10,47 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script rel="script" src="{% static 'js/main.js' %}"></script>
 </head>
 <body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper red">
-        <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;SuperHeroes</a></li>
-          <li><img class="batman" src="https://i.imgur.com/3HPqvwt.gif"></li>
-          <li><img class="batman" src="https://i.imgur.com/wQ8gYTZ.gif"></li>
-        </ul>
-        <ul class="right">
-            
+  <header>
+    <nav class="sidenav-trigger">
+      <div>
 
-          <li><a href="{% url 'about' %}">About</a></li>
-          {% if user.is_authenticated %}
+        <ul>
+          <li><a href="/" class="right brand-logo">&nbsp;&nbsp;SuperHeroes</a></li>
+        </ul>
+        <ul>
+            <li><a href="{% url 'about' %}">About</a></li>
+            {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}">Log Out</a></li>
-            <li><a href="{% url 'superheroes' %}">View All Super Heroes</a></li>
-            <li><a href="{% url 'superheroes_create' %}">Add a Super Hero</a></li>
-            <li><a href="{% url 'powers_add' %}">Add a Super Power</a></li>
-            <li><a href="{% url 'powers_index' %}">View All Powers</a></li>
+            <li><a href="{% url 'superheroes' %}">View Heroes</a></li>
+            <li><a href="{% url 'superheroes_create' %}">Add Hero</a></li>
+            <li><a href="{% url 'powers_add' %}">Add Powers</a></li>
+            <li><a href="{% url 'powers_index' %}">View Powers</a></li>
           {% else %}
-          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
           {% endif %}
-          
-          
-          
-
         </ul>
-
       </div>
     </nav>
   </header>
-  <main class="container">
-    {% block content %}
-    {% endblock %}
-  </main>
-  <footer class="page-footer red">
+
+  <div class="myparalax-wrapper">
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+  </div>
+  <div class="regular-wrapper">
+    <div class="content">
+      <!-- plug in div  -->
+      <div></div>
+    </div>
+  </div>  
+
+  <footer class="page-footer blue">
     <div class="right">All Rights Reserved, &copy; 2019 SuperHeroes &nbsp;</div>
   </footer>
 </body>
