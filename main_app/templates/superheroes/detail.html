@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Superhero Details</h1>
+<h1 class="card">Superhero Details</h1>
 
 <div class="card">
   <div class="card-content">
@@ -34,7 +34,7 @@
   <input type="submit" class="btn" value="Upload Photo">
 </form>
 <hr>
-<div class="row">
+<div class="row card">
   <div class="col s6">
     <h3>{{ superhero.name }}'s Power</h3>
     {% if superhero.add_powers.count %}
