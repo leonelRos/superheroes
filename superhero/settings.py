@@ -126,5 +126,5 @@ LOGIN_REDIRECT_URL = '/superheroes/'
 # the logout shold be change to main page '/'
 LOGOUT_REDIRECT_URL = '/'
 
-
-
+import django_heroku
+django_heroku.settings(locals())

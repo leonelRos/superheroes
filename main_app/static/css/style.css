@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     background-image: url('https://i.imgur.com/mtCCTeF.jpg'); 
     padding-bottom:60px;
+    background-attachment: fixed;
   }
 
 

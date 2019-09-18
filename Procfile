@@ -1,1 +1,1 @@
-web: gunicorn superhero-database-sei.wsgi
+web: gunicorn superhero.wsgi
