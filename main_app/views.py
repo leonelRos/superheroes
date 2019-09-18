@@ -3,10 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
 from django.views.generic import DetailView, ListView
-
-
 import uuid
 import boto3
 from .models import Superhero, Photo, Power
@@ -17,8 +14,6 @@ BUCKET = 'superheroes-project'
 
 
 # Create your views here.
-
-
 
 
 class SuperheroCreate(CreateView):
@@ -69,7 +64,7 @@ def signup(request):
       # This is how we log a user in via code
       login(request, user)
       # redirect should be changed to 'index'
-      return redirect('about')
+      return redirect('index')
     else:
       error_message = 'Invalid sign up - try again'
   # A bad POST or a GET request, so render signup.html with an empty form

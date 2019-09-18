@@ -121,6 +121,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # the login should be change to our main class '/<class_name>/'
-LOGIN_REDIRECT_URL = '/about/'
+LOGIN_REDIRECT_URL = '/superheroes/'
 # the logout shold be change to main page '/'
-LOGOUT_REDIRECT_URL = '/about/'
+LOGOUT_REDIRECT_URL = '/'
