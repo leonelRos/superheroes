@@ -10,13 +10,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script rel="script" src="{% static 'js/main.js' %}"></script>
 </head>
 <body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper red">
+  <header>
+    <nav class="sidenav-trigger">
+      <div>
+
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;SuperHeroes</a></li>
+          <li><a href="/" class="right brand-logo">&nbsp;&nbsp;SuperHeroes</a></li>
         </ul>
         <ul class="right">
           <li><a href="{% url 'about' %}">About</a></li>
@@ -34,12 +36,31 @@
       </div>
     </nav>
   </header>
-  <main class="container">
+
+  <main>
+  <div class="parallax-container">
+    <div class="parallax">
+      <img src="https://i.imgur.com/mtCCTeF.jpg">
+    </div>
+  </div>
+
+  <div class="section white">
+    <div class="row container">
     {% block content %}
     {% endblock %}
+   
+  </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+        $('.parallax').parallax();
+    });
+  </script>
+
   </main>
-  <footer class="page-footer red">
-    <div class="right">All Rights Reserved, &copy; 2019 SuperHeroes &nbsp;</div>
+  <footer class="page-footer">
+    <div class="center">All Rights Reserved, &copy; 2019 SuperHeroes &nbsp;</div>
   </footer>
 </body>
 </html>

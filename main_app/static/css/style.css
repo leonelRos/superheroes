@@ -1,16 +1,52 @@
+
+@import url('https://fonts.googleapis.com/css?family=Notable&display=swap');
+
 body {
-    display: flex;
-    min-height: 100vh;
+  margin:0;
+  padding:0;
+  height:100%;
+    display: block;
     flex-direction: column;
-    
-  }
-  
-  main {
-    flex: 1 0 auto;
+    background-image: url('https://i.imgur.com/mtCCTeF.jpg'); 
+    padding-bottom:60px;
   }
 
-  footer {
-    padding-top: 0;
-    text-align: right;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Notable', sans-serif;
+    text-align: center; 
   }
+
+  span, p, li, a {
+    font-family: 'Notable', sans-serif;
+    font-weight: 200; 
+  }
+
+  ul.right {
+    margin-left: 100px; 
+  }
+
+  div.card-content:hover {
+    background-color: rgba(187, 187, 187, 0.795); 
+  }
+
+  form, table, input {
+    justify-content: center; 
+    margin-left: 10%; 
+    margin-right: 25%; 
+  }
+
+  .parallax-container {
+    height: 100px; 
+  }
+
+  .page-footer {
+    position:absolute;
+    /* bottom: 130; */
+    width: 100%; 
+ }
+
+
+
+
 

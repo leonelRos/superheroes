@@ -3,7 +3,15 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 from django.views.generic import DetailView, ListView
+
+from django.http import HttpResponseRedirect
+from django.utils.functional import lazy
+from django.urls import reverse
+
+
+
 import uuid
 import boto3
 from .models import Superhero, Photo, Power
@@ -50,7 +58,10 @@ class PowerList(ListView):
   
 class PhotoDelete(DeleteView):
   model = Photo
-  success_url = '/superheroes/'
+  def get_success_url(self):
+    print("SELF OBJECT", self.object)
+    return reverse('detail', kwargs={'superhero_id': self.object.superhero_id})
+  # success_url = lazy(reverse,str)('detail', kwargs={})
 
 def signup(request):
   error_message = ''
