@@ -1,24 +1,17 @@
+
 @import url('https://fonts.googleapis.com/css?family=Notable&display=swap');
-html {
-  overflow: hidden;
-}
 
 body {
-    display: flex;
-    min-height: 100vh;
+  margin:0;
+  padding:0;
+  height:100%;
+    display: block;
     flex-direction: column;
-    perspective: 1px;
-    transform-style: preserve-3d;
-    overflow-x:hidden;
-    overflow-y:auto; 
+    background-image: url('https://i.imgur.com/mtCCTeF.jpg'); 
+    padding-bottom:60px;
   }
 
-  footer {
-    padding-top: 0;
-    text-align: right;
-  }
 
-<<<<<<< HEAD
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Notable', sans-serif;
     text-align: center; 
@@ -34,7 +27,7 @@ body {
   }
 
   div.card-content:hover {
-    background-color: rgb(131, 106, 106); 
+    background-color: rgba(187, 187, 187, 0.795); 
   }
 
   form, table, input {
@@ -43,48 +36,17 @@ body {
     margin-right: 25%; 
   }
 
-.myparalax-wrapper {
-  width: 100vw;
-  height:100vh;
-  padding-top:20vh;
-  box-sizing: border-box;
-  transform-style: preserve-3d;
-}
+  .parallax-container {
+    height: 100px; 
+  }
 
-.parallax-wrapper::before {
-  /* content:""; */
-  width: 100vw;
-  height: 100vh;
-  top:0;
-  left:0;
-  background: url("https://i.imgur.com/mtCCTeF.jpg");
-  position: absolute;
-  z-index: -1;
-  transform:translateZ(-1px) scale(2);
-}
-.content {
-  margin: 0 auto;
-  padding: 50px;
-  width: 50%;
-  background: #aaa;
-}
-
-.regular-wrapper {
-  width: 100vw;
-  height:100vh;
-  padding-top:20vh;
-  background: url("https://i.imgur.com/mtCCTeF.jpg");
-  z-index: 2;
-  position: relative;
-}
+  .page-footer {
+    position:absolute;
+    /* bottom: 130; */
+    width: 100%; 
+ }
 
 
 
-=======
-.batman {
-  
-  max-width: 30%;
-  height: auto;
 
-}
->>>>>>> master
+

@@ -37,21 +37,30 @@
     </nav>
   </header>
 
-  <div class="myparalax-wrapper">
-    <div class="content">
-        {% block content %}
-        {% endblock %}
+  <main>
+  <div class="parallax-container">
+    <div class="parallax">
+      <img src="https://i.imgur.com/mtCCTeF.jpg">
     </div>
   </div>
-  <div class="regular-wrapper">
-    <div class="content">
-      <!-- plug in div  -->
-      <div></div>
-    </div>
-  </div>  
 
-  <footer class="page-footer blue">
-    <div class="right">All Rights Reserved, &copy; 2019 SuperHeroes &nbsp;</div>
+  <div class="section white">
+    <div class="row container">
+    {% block content %}
+    {% endblock %}
+   
+  </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+        $('.parallax').parallax();
+    });
+  </script>
+
+  </main>
+  <footer class="page-footer">
+    <div class="center">All Rights Reserved, &copy; 2019 SuperHeroes &nbsp;</div>
   </footer>
 </body>
 </html>
