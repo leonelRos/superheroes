@@ -102,7 +102,6 @@ def powers(request):
   return render(request, 'main_app/superpower_add.html', { 'powers': powers })
 
 def assoc_power(request, superhero_id, power_id):
-  # Note that you can pass a toy's id instead of the whole object
   Superhero.objects.get(id=superhero_id).add_powers.add(power_id)
   return redirect('detail', superhero_id=superhero_id)
 
