@@ -20,7 +20,7 @@
         <ul>
           <li><a href="/" class="right brand-logo">&nbsp;&nbsp;SuperHeroes</a></li>
         </ul>
-        <ul class="right">
+        <ul class="left">
           <li><a href="{% url 'about' %}">About</a></li>
             {% if user.is_authenticated %}
               <li><a href="{% url 'logout' %}">Log Out</a></li>
