@@ -2,7 +2,7 @@
 **Welcome to Super Hero**
 
 **Try Super Hero Here**      
-https://tunestalk.herokuapp.com
+https://superhero-database-sei.herokuapp.com/
 
 <p align="center">
  <a href="https://imgur.com/ASTDNZM"><img src="https://i.imgur.com/ASTDNZM.png" title="source: imgur.com" /></a>
