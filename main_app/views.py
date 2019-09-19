@@ -11,7 +11,7 @@ from django.utils.functional import lazy
 from django.urls import reverse
 
 
-
+import requests 
 import uuid
 import boto3
 from .models import Superhero, Photo, Power
@@ -85,8 +85,14 @@ def signup(request):
 
 # Add new view
 def superheroes(request):
+  response = requests.get('https://akabab.github.io/superhero-api/api/all.json')
+  dictionary= response.json()
   superheroes = Superhero.objects.all()
-  return render(request, 'superheroes/index.html', { 'superheroes': superheroes })
+  return render(request, 'superheroes/index.html', { 
+    'superheroes': superheroes,
+     'dictionary': dictionary
+    
+    })
 
 def superheroes_detail(request, superhero_id):
   superhero = Superhero.objects.get(id=superhero_id)
