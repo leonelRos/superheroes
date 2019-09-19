@@ -3,6 +3,7 @@
  {% if object %}
    <h1>Edit <span class="teal-text">{{object.name}}</span></h1>
  {% else %}
+ <div class = "card">
    <h1>Add Power</h1>
  {% endif %}
  <!-- Leaving the action empty makes the form post to the same url used to display it -->
@@ -15,4 +16,5 @@
    </table>
    <input type="submit" value="Submit!" class="btn">
  </form>
+ </div>
 {% endblock %}
