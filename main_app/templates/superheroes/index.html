@@ -5,7 +5,7 @@
 
 
 {% for superhero in superheroes %}
-{% if user == superhero.user %}
+
 <div class="card">
   <a href="{% url 'detail' superhero.id %}">
     <div class="card-content">
@@ -17,7 +17,7 @@
 
 </div>
 </div>
-{% endif %}
+
 {% endfor %}
 
 
