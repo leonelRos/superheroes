@@ -120,6 +120,11 @@ def assoc_power(request, superhero_id, power_id):
   Superhero.objects.get(id=superhero_id).add_powers.add(power_id)
   return redirect('detail', superhero_id=superhero_id)
 
+@login_required
+def unassoc_power(request, superhero_id, power_id):
+  Superhero.objects.get(id=superhero_id).add_powers.remove(power_id)
+  return redirect('detail', superhero_id=superhero_id)
+
 
 @login_required
 def add_photo(request, superhero_id):
@@ -134,7 +139,7 @@ def add_photo(request, superhero_id):
             s3.upload_fileobj(photo_file, BUCKET, key)
             # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
-            # we can assign to cat_id or cat (if you have a cat object)
+            # we can assign to superhero_id or superhero (if you have a superhero object)
             photo = Photo(url=url, superhero_id=superhero_id)
             photo.save()
         except:

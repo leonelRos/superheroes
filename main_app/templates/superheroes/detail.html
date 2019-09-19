@@ -47,6 +47,12 @@
           <span>{{ power.name }}</span>
         </span>
       </div>
+      <div class="card-action">
+        <form action="{% url 'unassoc_power' superhero.id power.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn">Remove</button>
+        </form>
+      </div>
     </div>
     {% endfor %}
     {% else %}
