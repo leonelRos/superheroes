@@ -4,8 +4,8 @@
 <h1>Superhero List</h1>
 
 
-
 {% for superhero in superheroes %}
+{% if user == superhero.user %}
 <div class="card">
   <a href="{% url 'detail' superhero.id %}">
     <div class="card-content">
@@ -17,28 +17,10 @@
 
 </div>
 </div>
+{% endif %}
 {% endfor %}
 
-{% for hero in dictionary %}
-<div class="card">
-  <div class="card-content">
-    <span class="card-title">{{ hero.name }}</span>
-    <div class='left'>
-      <p>Powerstats</p>
-      <li>Strength {{ hero.powerstats.strength }}</li>
-      <li>Speed {{ hero.powerstats.speed }}</li>
-      <li>Power {{ hero.powerstats.power }}</li>
-      <li>Intelligence {{ hero.powerstats.intelligence }}</li>
 
-      <p>Real Name: {{ hero.biography.fullName }}</p>
-      <p>Alignment: {{ hero.biography.alignment }}</p>
-    </div>
-    <div class="">
-      <img class="responsive-image" src="{{ hero.images.sm }}">
-    </div>
-  </div>
 
-</div>
-{% endfor %}
 
 {% endblock %}

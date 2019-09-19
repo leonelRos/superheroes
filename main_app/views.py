@@ -2,6 +2,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from django.views.generic import DetailView, ListView
@@ -24,39 +26,44 @@ BUCKET = 'superheroes-project'
 # Create your views here.
 
 
-class SuperheroCreate(CreateView):
+class SuperheroCreate(LoginRequiredMixin, CreateView):
   model = Superhero
   fields = ['name', 'power', 'description', 'age']
+  def form_valid(self, form):
+    # Assign the logged in user (self.request.user)
+    form.instance.user = self.request.user
+    # Let the CreateView do its job as usual
+    return super().form_valid(form)
 
-class SuperheroUpdate(UpdateView):
+class SuperheroUpdate(LoginRequiredMixin, UpdateView):
   model = Superhero
   # Let's disallow the renaming of a Superhero by excluding the name field!
   fields = ['name', 'description', 'age']
 
-class SuperheroDelete(DeleteView):
+class SuperheroDelete(LoginRequiredMixin, DeleteView):
   model = Superhero
   success_url = '/superheroes/'
 
 # Create your views for powers! 
-class PowerCreate(CreateView):
+class PowerCreate(LoginRequiredMixin, CreateView):
   model = Power
   fields = '__all__'
 
-class PowerDetail(DetailView):
+class PowerDetail(LoginRequiredMixin, DetailView):
   model = Power
 
-class PowerDelete(DeleteView):
+class PowerDelete(LoginRequiredMixin, DeleteView):
   model = Power
   success_url = '/powers/'
 
-class PowerUpdate(UpdateView):
+class PowerUpdate(LoginRequiredMixin, UpdateView):
   model = Power
   fields = '__all__'
 
-class PowerList(ListView):
+class PowerList(LoginRequiredMixin, ListView):
   model = Power
   
-class PhotoDelete(DeleteView):
+class PhotoDelete(LoginRequiredMixin, DeleteView):
   model = Photo
   def get_success_url(self):
     print("SELF OBJECT", self.object)
@@ -84,16 +91,17 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 # Add new view
+@login_required
 def superheroes(request):
   response = requests.get('https://akabab.github.io/superhero-api/api/all.json')
-  dictionary= response.json()
+  dictionary = response.json()
   superheroes = Superhero.objects.all()
   return render(request, 'superheroes/index.html', { 
     'superheroes': superheroes,
      'dictionary': dictionary
     
     })
-
+@login_required
 def superheroes_detail(request, superhero_id):
   superhero = Superhero.objects.get(id=superhero_id)
   power_superhero_doesnt_have = Power.objects.exclude(id__in = superhero.add_powers.all().values_list('id'))
@@ -103,16 +111,17 @@ def superheroes_detail(request, superhero_id):
   })
 
 # powers view 
+@login_required
 def powers(request):
   powers = Power.objects.all()
   return render(request, 'main_app/superpower_add.html', { 'powers': powers })
-
+@login_required
 def assoc_power(request, superhero_id, power_id):
   Superhero.objects.get(id=superhero_id).add_powers.add(power_id)
   return redirect('detail', superhero_id=superhero_id)
 
 
-
+@login_required
 def add_photo(request, superhero_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)

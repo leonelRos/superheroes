@@ -21,6 +21,9 @@ class Superhero(models.Model):  # Note that parens are optional if not inheritin
     description = models.TextField(max_length=250)
     age = models.IntegerField()
     add_powers = models.ManyToManyField(Power)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
 
     	
     def __str__(self):
