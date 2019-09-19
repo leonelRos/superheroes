@@ -151,7 +151,14 @@ def add_photo(request, superhero_id):
 
 # Define the home view
 def home(request):
-  return render(request, 'home.html')
+  response = requests.get('https://akabab.github.io/superhero-api/api/all.json')
+  dictionary = response.json()
+  superheroes = Superhero.objects.all()
+  return render(request, 'home.html', { 
+    'superheroes': superheroes,
+     'dictionary': dictionary
+    
+    })
 def about(request):
   return render(request, 'about.html')
 
